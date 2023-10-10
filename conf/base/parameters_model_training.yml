@@ -1,0 +1,29 @@
+# This is a boilerplate parameters config generated for pipeline 'model_training'
+# using Kedro 0.18.13.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://docs.kedro.org/en/0.18.13/configuration/parameters.html
+variables:
+  seed: &seed 42
+  window_size: &window-size 24
+
+data_config:
+  batch_size: 32
+  input_size: *window-size
+  output_size: *window-size
+  seed: *seed
+
+model_config:
+  num_blocks: 4
+  hidden_size: 64
+  dropout_rate: 0.3
+  output_size: *window-size
+
+train_config:
+  learning_rate: 0.001
+  train_log_dir: "./logs/train/"
+  val_log_dir: "./logs/val/"
+  checkpoint_dir: "./checkpoints/train"
+  num_epochs: 10
+  checkpoint_freq: 1
+  seed: *seed

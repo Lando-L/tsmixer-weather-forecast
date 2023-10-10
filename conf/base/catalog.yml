@@ -1,0 +1,46 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+weather:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/weather.csv
+  metadata:
+    kedro-viz:
+      layer: raw
+
+primary_weather:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/primary_weather.pq
+  metadata:
+    kedro-viz:
+      layer: primary
+
+feature_weather:
+  type: pandas.ParquetDataset
+  filepath: data/04_feature/feature_weather.pq
+  metadata:
+    kedro-viz:
+      layer: feature
+
+train:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/train.pq
+  metadata:
+    kedro-viz:
+      layer: model_input
+
+val:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/val.pq
+  metadata:
+    kedro-viz:
+      layer: model_input
+
+test:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/test.pq
+  metadata:
+    kedro-viz:
+      layer: model_input
